@@ -1,4 +1,5 @@
-﻿using SmallTax.Data.Interfaces;
+﻿using System;
+using SmallTax.Data.Interfaces;
 
 namespace SmallTax.Data.Entities
 {
@@ -8,6 +9,7 @@ namespace SmallTax.Data.Entities
         public string Name { get; set; }
         public int PostalCode { get; set; }
         public decimal AnnualSalary { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public Person(ITax tax)
         {

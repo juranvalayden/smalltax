@@ -6,5 +6,6 @@ namespace SmallTax.Data
     public interface ITaxRepository
     {
         IEnumerable<TaxBracket> GetAllTaxBrackets();
+        bool SaveAll();
     }
 }

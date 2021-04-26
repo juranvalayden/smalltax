@@ -17,7 +17,8 @@ namespace SmallTax
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<ITaxRepository, TaxRepository>();
 
-            services.AddControllersWithViews()
+            services
+                .AddControllersWithViews()
                 .AddRazorRuntimeCompilation()
                 .AddNewtonsoftJson(cfg => cfg.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 

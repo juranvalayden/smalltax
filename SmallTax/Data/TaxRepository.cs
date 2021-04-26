@@ -25,5 +25,10 @@ namespace SmallTax.Data
                 throw new InvalidOperationException($"{ex.Message}");
             }
         }
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
     }
 }
