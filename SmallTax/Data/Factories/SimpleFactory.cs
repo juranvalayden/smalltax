@@ -6,10 +6,12 @@ namespace SmallTax.Data.Factories
 {
     public static class SimpleFactory
     {
-        private static readonly UnityContainer PersonFactory = new UnityContainer();
+        private static readonly UnityContainer PersonFactory;
 
         static SimpleFactory()
         {
+            PersonFactory = new UnityContainer();
+
             PersonFactory.RegisterType<ITax, ProgressiveTax>("7441");
             PersonFactory.RegisterType<ITax, ProgressiveTax>("1000");
             PersonFactory.RegisterType<ITax, FlatValueTax>("A100");

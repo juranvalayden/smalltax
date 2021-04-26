@@ -10,7 +10,6 @@ namespace SmallTax.ViewModels
         public string Name { get; set; }
         
         [Required]
-        [MinLength(4)]
         public int PostalCode { get; set; }
 
         [Required]
