@@ -13,7 +13,7 @@ namespace SmallTax
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TaxContext>();
-
+            services.AddTransient<TaxSeeder>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<ITaxRepository, TaxRepository>();
 

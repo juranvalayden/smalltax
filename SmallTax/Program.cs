@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SmallTax.Data;
 
 namespace SmallTax
 {
@@ -13,11 +14,20 @@ namespace SmallTax
 
             if (args.Length > 0 && args[0].ToLower() == "/seed")
             {
-                return;
+                RunSeeding(host);
             }
 
             host.Run();
         }
+
+        private static void RunSeeding(IHost host)
+        {
+            var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
+
+            using var scope = scopeFactory?.CreateScope();
+            scope?.ServiceProvider.GetService<TaxSeeder>()?.Seed();
+        }
+
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
@@ -34,7 +44,6 @@ namespace SmallTax
 
             builder.AddJsonFile("config.json", false, true)
                 .AddEnvironmentVariables();
-
         }
     }
 }
