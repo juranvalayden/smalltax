@@ -7,14 +7,14 @@ namespace SmallTax.Data.Entities
         private readonly ITax _tax;
         public string Name { get; set; }
         public int PostalCode { get; set; }
-        public double AnnualSalary { get; set; }
+        public decimal AnnualSalary { get; set; }
 
         public Person(ITax tax)
         {
             _tax = tax;
         }
 
-        public virtual double TotalTax()
+        public virtual decimal TotalTax()
         {
             return AnnualSalary - _tax.Calculate(AnnualSalary);
         }

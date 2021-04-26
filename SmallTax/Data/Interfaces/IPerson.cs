@@ -2,6 +2,6 @@
 {
     public interface IPerson
     {
-        double TotalTax();
+        decimal TotalTax();
     }
 }

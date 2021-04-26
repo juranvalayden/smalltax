@@ -2,6 +2,6 @@
 {
     public interface ITax
     {
-        double Calculate(double annualSalary);
+        decimal Calculate(decimal annualSalary);
     }
 }

@@ -4,9 +4,9 @@ namespace SmallTax.Data.TaxModels
 {
     public class FlatRateTax : ITax
     {
-        public double Calculate(double annualSalary)
+        public decimal Calculate(decimal annualSalary)
         {
-            return 17.5;
+            return 17.5m;
         }
     }
 }

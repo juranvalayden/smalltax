@@ -8,10 +8,10 @@ namespace SmallTax.Data.TaxModels
         {
         }
 
-        public double Calculate(double annualSalary)
+        public decimal Calculate(decimal annualSalary)
         {
             if (annualSalary > 200000)
-                return 10000 + (0.5 * annualSalary);
+                return 10000 + (0.5m * annualSalary);
 
             return 10000;
         }
