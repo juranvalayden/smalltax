@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "TaxConnectionString": "Data Source=DESKTOP-EL48QFM;Initial Catalog=Dummy;Integrated Security=True;"
+  }
+}
