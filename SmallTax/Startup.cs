@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using SmallTax.Data;
+using SmallTax.Data.Factories;
+using SmallTax.Data.Interfaces;
 
 namespace SmallTax
 {
@@ -15,6 +17,8 @@ namespace SmallTax
             services.AddDbContext<TaxContext>();
             services.AddTransient<TaxSeeder>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            
+            services.AddScoped<IPersonFactory, PersonFactory>();
             services.AddScoped<ITaxRepository, TaxRepository>();
 
             services
