@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using SmallTax.Data.Entities;
-using SmallTax.Data.Models;
 using SmallTax.ViewModels;
 
 namespace SmallTax.Data

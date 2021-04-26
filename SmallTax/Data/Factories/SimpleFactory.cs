@@ -1,5 +1,5 @@
 ﻿using SmallTax.Data.Interfaces;
-using SmallTax.Data.Models;
+using SmallTax.Data.TaxModels;
 using Unity;
 
 namespace SmallTax.Data.Factories

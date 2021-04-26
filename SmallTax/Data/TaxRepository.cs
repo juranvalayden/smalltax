@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SmallTax.Data.Entities;
-using SmallTax.Data.Models;
 
 namespace SmallTax.Data
 {

@@ -1,7 +1,6 @@
-﻿using System;
-using SmallTax.Data.Interfaces;
+﻿using SmallTax.Data.Interfaces;
 
-namespace SmallTax.Data.Models
+namespace SmallTax.Data.TaxModels
 {
     public class ProgressiveTax : ITax
     {

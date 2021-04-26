@@ -1,6 +1,6 @@
 ﻿using SmallTax.Data.Interfaces;
 
-namespace SmallTax.Data.Models
+namespace SmallTax.Data.TaxModels
 {
     public class FlatValueTax : ITax
     {
