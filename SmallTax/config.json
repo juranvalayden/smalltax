@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "TaxContextDb": "Data Source=DESKTOP-EL48QFM;Initial Catalog=TaxContextDb;Integrated Security=True;"
+    "SmallTaxContextDb": "Data Source=DESKTOP-EL48QFM;Initial Catalog=TaxContextDb;Integrated Security=True;"
   }
 }

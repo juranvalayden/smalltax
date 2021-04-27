@@ -3,7 +3,7 @@ using SmallTax.Data.Entities;
 
 namespace SmallTax.Data
 {
-    public interface ITaxRepository
+    public interface ISmallTaxRepository
     {
         IEnumerable<TaxBracket> GetAllTaxBrackets();
         void AddEntity(object entity);

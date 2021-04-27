@@ -25,7 +25,7 @@ namespace SmallTax
             var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
 
             using var scope = scopeFactory?.CreateScope();
-            scope?.ServiceProvider.GetService<TaxSeeder>()?.Seed();
+            scope?.ServiceProvider.GetService<SmallTaxSeeder>()?.Seed();
         }
 
 

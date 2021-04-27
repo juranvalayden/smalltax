@@ -4,9 +4,9 @@ using SmallTax.ViewModels;
 
 namespace SmallTax.Data
 {
-    public class TaxMappingProfile : Profile
+    public class SmallTaxMappingProfile : Profile
     {
-        public TaxMappingProfile()
+        public SmallTaxMappingProfile()
         {
             CreateMap<TaxBracket, TaxBracketViewModel>().ReverseMap();
             CreateMap<Person, PersonViewModel>().ReverseMap();

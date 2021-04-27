@@ -5,11 +5,11 @@ using SmallTax.Data.Entities;
 
 namespace SmallTax.Data
 {
-    public class TaxRepository : ITaxRepository
+    public class SmallTaxRepository : ISmallTaxRepository
     {
-        private readonly TaxContext _context;
+        private readonly SmallTaxContext _context;
 
-        public TaxRepository(TaxContext context)
+        public SmallTaxRepository(SmallTaxContext context)
         {
             _context = context;
         }

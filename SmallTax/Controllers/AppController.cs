@@ -10,11 +10,11 @@ namespace SmallTax.Controllers
 {
     public class AppController : Controller
     {
-        private readonly ITaxRepository _repository;
+        private readonly ISmallTaxRepository _repository;
         private readonly IPersonFactory _factory;
         private readonly IMapper _mapper;
 
-        public AppController(ITaxRepository repository, IPersonFactory factory, IMapper mapper)
+        public AppController(ISmallTaxRepository repository, IPersonFactory factory, IMapper mapper)
         {
             _repository = repository;
             _factory = factory;
@@ -40,7 +40,7 @@ namespace SmallTax.Controllers
             person.TotalTax();
 
             _repository.AddEntity(person);
-            // _repository.SaveAll();
+            _repository.SaveAll();
 
             ModelState.Clear();
 

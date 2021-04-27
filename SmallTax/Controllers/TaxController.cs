@@ -11,10 +11,10 @@ namespace SmallTax.Controllers
     [Produces("application/json")]
     public class TaxController : ControllerBase
     {
-        private readonly ITaxRepository _repository;
+        private readonly ISmallTaxRepository _repository;
         private readonly IMapper _mapper;
 
-        public TaxController(ITaxRepository repository, IMapper mapper)
+        public TaxController(ISmallTaxRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

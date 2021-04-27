@@ -14,12 +14,12 @@ namespace SmallTax
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TaxContext>();
-            services.AddTransient<TaxSeeder>();
+            services.AddDbContext<SmallTaxContext>();
+            services.AddTransient<SmallTaxSeeder>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             
             services.AddScoped<IPersonFactory, PersonProgressiveTax>();
-            services.AddScoped<ITaxRepository, TaxRepository>();
+            services.AddScoped<ISmallTaxRepository, SmallTaxRepository>();
 
             services
                 .AddControllersWithViews()

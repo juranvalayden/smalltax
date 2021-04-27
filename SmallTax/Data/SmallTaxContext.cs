@@ -4,12 +4,14 @@ using SmallTax.Data.Entities;
 
 namespace SmallTax.Data
 {
-    public class TaxContext : DbContext
+    public class SmallTaxContext : DbContext
     {
+        public DbSet<Person> Persons { get; set; }
         public DbSet<TaxBracket> TaxBrackets { get; set; }
+
         private readonly IConfiguration _configuration;
 
-        public TaxContext(IConfiguration configuration)
+        public SmallTaxContext(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -17,7 +19,7 @@ namespace SmallTax.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:TaxContextDb"]);
+            optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:SmallTaxContextDb"]);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
