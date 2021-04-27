@@ -3,6 +3,6 @@
     public interface IPersonFactory
     {
         ITax CreateTax();
-        IPerson CreatePerson();
+        IPerson CreatePerson(IPerson person);
     }
 }

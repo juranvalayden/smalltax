@@ -3,8 +3,6 @@ using SmallTax.Data.Interfaces;
 
 namespace SmallTax.Data.TaxModels
 {
-
-
     public class PersonProgressiveTax : IPersonFactory
     {
         public virtual ITax CreateTax()
@@ -12,9 +10,9 @@ namespace SmallTax.Data.TaxModels
             return new ProgressiveTax();
         }
 
-        public virtual IPerson CreatePerson()
-        {
-            return new Person(CreateTax());
+        public virtual IPerson CreatePerson(IPerson person)
+        { 
+            return new Person(CreateTax(), person); 
         }
     }
 }

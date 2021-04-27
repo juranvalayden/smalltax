@@ -16,7 +16,9 @@ namespace SmallTax.Data.TaxModels
 
         public decimal Calculate(decimal annualSalary)
         {
-            var taxBracket = _allTaxBrackets.FirstOrDefault(t => t.Lower <= annualSalary && t.Upper < annualSalary);
+            // var taxBracket = _allTaxBrackets.FirstOrDefault(t => t.Lower <= annualSalary && t.Upper < annualSalary);
+            var taxBracket = _allTaxBrackets.First();
+
             return CalculateTaxByBracket(taxBracket);
         }
 

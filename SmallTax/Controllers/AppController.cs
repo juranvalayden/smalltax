@@ -35,12 +35,10 @@ namespace SmallTax.Controllers
         public IActionResult PersonalTax(PersonViewModel model)
         {
             if (!ModelState.IsValid) return View();
+            
+            var person = SimpleFactory.CreatePerson(_mapper.Map<PersonViewModel, Person>(model));
 
-            var person = _mapper.Map<PersonViewModel>(model);
-
-            var person2 = SimpleFactory.CreatePerson(model.PostalCode.ToString());
-
-            var tax = person2.TotalTax();
+            var totalTax = person.TotalTax();
 
             ModelState.Clear();
 

@@ -1,4 +1,5 @@
-﻿using SmallTax.Data.Interfaces;
+﻿using SmallTax.Data.Entities;
+using SmallTax.Data.Interfaces;
 using SmallTax.Data.TaxModels;
 using Unity;
 
@@ -18,9 +19,9 @@ namespace SmallTax.Data.Factories
             PersonFactory.RegisterType<IPersonFactory, PersonFlatRate>("7000");
         }
 
-        public static IPerson CreatePerson(string postalCode)
+        public static IPerson CreatePerson(IPerson person)
         {
-            return PersonFactory.Resolve<IPersonFactory>(postalCode).CreatePerson();
+            return PersonFactory.Resolve<IPersonFactory>(person.PostalCode).CreatePerson(person);
         }
     }
 }
