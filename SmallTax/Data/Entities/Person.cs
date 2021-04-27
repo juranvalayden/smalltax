@@ -28,7 +28,7 @@ namespace SmallTax.Data.Entities
 
         public virtual decimal TotalTax()
         {
-            return AnnualSalary - _tax.Calculate(AnnualSalary);
+            return _tax.Calculate(AnnualSalary);
         }
     }
 }

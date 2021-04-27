@@ -6,7 +6,7 @@ namespace SmallTax.Data.TaxModels
     {
         public decimal Calculate(decimal annualSalary)
         {
-            return 17.5m;
+            return annualSalary * (17.5m/100);
         }
     }
 }

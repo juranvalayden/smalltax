@@ -16,33 +16,40 @@ namespace SmallTax.Data.TaxModels
 
         public decimal Calculate(decimal annualSalary)
         {
-            // var taxBracket = _allTaxBrackets.FirstOrDefault(t => t.Lower <= annualSalary && t.Upper < annualSalary);
-            var taxBracket = _allTaxBrackets.First();
-
-            return CalculateTaxByBracket(taxBracket);
+            var taxBracket = _allTaxBrackets.FirstOrDefault(t => t.Lower < annualSalary && t.Upper > annualSalary);
+            return CalculateTaxByBracket(taxBracket, annualSalary);
         }
 
-        private decimal CalculateTaxByBracket(TaxBracket taxBracket)
+        private decimal CalculateTaxByBracket(TaxBracket taxBracket, decimal annualSalary)
         {
+            if (taxBracket == null)
+            {
+                return CalculateTaxOfFinalBracket(annualSalary);
+            }
+
             var previousTaxBracket = _allTaxBrackets.FirstOrDefault(t => t.Id == taxBracket.Id - 1);
-            decimal differenceInPercentage;
-            decimal extraTax;
-            decimal standardBracketTax;
 
             if (previousTaxBracket == null)
             {
-                differenceInPercentage = taxBracket.Rate;
-                extraTax = (taxBracket.Upper - taxBracket.Lower) * differenceInPercentage / 100;
-                standardBracketTax = taxBracket.Lower;
-            }
-            else
-            {
-                differenceInPercentage = taxBracket.Rate - previousTaxBracket.Rate;
-                extraTax = (taxBracket.Upper - taxBracket.Lower) * differenceInPercentage / 100;
-                standardBracketTax = taxBracket.Lower * previousTaxBracket.Rate / 100;
+                return annualSalary * taxBracket.Rate/100;
             }
 
-            return extraTax + standardBracketTax;
+            return CalculateTaxWithinBrackets(taxBracket, annualSalary, previousTaxBracket);
+        }
+
+        private static decimal CalculateTaxWithinBrackets(TaxBracket taxBracket, decimal annualSalary,
+            TaxBracket previousTaxBracket)
+        {
+            var differenceInPercentage = taxBracket.Rate - previousTaxBracket.Rate;
+            var lesserTax = (annualSalary - previousTaxBracket.Upper) * (differenceInPercentage / 100);
+            var standardTax = taxBracket.Lower * (previousTaxBracket.Rate / 100);
+            return lesserTax + standardTax;
+        }
+
+        private decimal CalculateTaxOfFinalBracket(decimal annualSalary)
+        {
+            var lastTwoRates = _allTaxBrackets.TakeLast(2);
+            return CalculateTaxWithinBrackets(lastTwoRates.Last(), annualSalary, lastTwoRates.First());
         }
 
         private static List<TaxBracket> GetAllTaxBrackets()
