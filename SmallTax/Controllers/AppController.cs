@@ -39,7 +39,8 @@ namespace SmallTax.Controllers
             var person = SimpleFactory.CreatePerson(_mapper.Map<PersonViewModel, Person>(model));
             person.TotalTax();
 
-            // _repository.AddEntity(person);
+            _repository.AddEntity(person);
+            // _repository.SaveAll();
 
             ModelState.Clear();
 

@@ -24,6 +24,7 @@ namespace SmallTax.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<TaxBracket>();
+            modelBuilder.Entity<Person>();
         }
     }
 }
