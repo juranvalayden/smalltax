@@ -10,7 +10,8 @@ namespace SmallTax.ViewModels
         public string Name { get; set; }
         
         [Required]
-        public int PostalCode { get; set; }
+        [MinLength(4)]
+        public string PostalCode { get; set; }
 
         [Required]
         public decimal AnnualSalary { get; set; }

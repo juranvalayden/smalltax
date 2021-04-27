@@ -1,14 +1,15 @@
 ﻿using SmallTax.Data.Entities;
 using SmallTax.Data.Interfaces;
-using SmallTax.Data.TaxModels;
 
-namespace SmallTax.Data.Factories
+namespace SmallTax.Data.TaxModels
 {
-    public class PersonFactory : IPersonFactory
+
+
+    public class PersonProgressiveTax : IPersonFactory
     {
         public virtual ITax CreateTax()
         {
-            return new FlatRateTax();
+            return new ProgressiveTax();
         }
 
         public virtual IPerson CreatePerson()

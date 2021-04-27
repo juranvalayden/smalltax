@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SmallTax.Data;
+using SmallTax.Data.Entities;
 using SmallTax.Data.Factories;
 using SmallTax.Data.Interfaces;
 using SmallTax.ViewModels;
@@ -10,11 +12,13 @@ namespace SmallTax.Controllers
     {
         private readonly ITaxRepository _repository;
         private readonly IPersonFactory _factory;
+        private readonly IMapper _mapper;
 
-        public AppController(ITaxRepository repository, IPersonFactory factory)
+        public AppController(ITaxRepository repository, IPersonFactory factory, IMapper mapper)
         {
             _repository = repository;
             _factory = factory;
+            _mapper = mapper;
         }
         
         public IActionResult Index()
@@ -32,7 +36,12 @@ namespace SmallTax.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            var person = SimpleFactory.CreatePerson(model.PostalCode.ToString());
+            var person = _mapper.Map<PersonViewModel>(model);
+
+            var person2 = SimpleFactory.CreatePerson(model.PostalCode.ToString());
+
+            var tax = person2.TotalTax();
+
             ModelState.Clear();
 
             return View();

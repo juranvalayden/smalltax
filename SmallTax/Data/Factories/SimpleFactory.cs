@@ -12,10 +12,10 @@ namespace SmallTax.Data.Factories
         {
             PersonFactory = new UnityContainer();
 
-            PersonFactory.RegisterType<ITax, ProgressiveTax>("7441");
-            PersonFactory.RegisterType<ITax, ProgressiveTax>("1000");
-            PersonFactory.RegisterType<ITax, FlatValueTax>("A100");
-            PersonFactory.RegisterType<ITax, FlatRateTax>("7000");
+            PersonFactory.RegisterType<IPersonFactory, PersonProgressiveTax>("7441");
+            PersonFactory.RegisterType<IPersonFactory, PersonProgressiveTax>("1000");
+            PersonFactory.RegisterType<IPersonFactory, PersonFlatValue>("A100");
+            PersonFactory.RegisterType<IPersonFactory, PersonFlatRate>("7000");
         }
 
         public static IPerson CreatePerson(string postalCode)

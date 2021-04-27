@@ -7,7 +7,7 @@ namespace SmallTax.Data.Entities
     {
         private readonly ITax _tax;
         public string Name { get; set; }
-        public int PostalCode { get; set; }
+        public string PostalCode { get; set; }
         public decimal AnnualSalary { get; set; }
         public DateTime CreatedDate { get; set; }
 

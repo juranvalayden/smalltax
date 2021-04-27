@@ -9,6 +9,7 @@ namespace SmallTax.Data
         public TaxMappingProfile()
         {
             CreateMap<TaxBracket, TaxBracketViewModel>().ReverseMap();
+            CreateMap<Person, PersonViewModel>().ReverseMap();
         }
     }
 }
