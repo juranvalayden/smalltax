@@ -26,6 +26,11 @@ namespace SmallTax.Data
             }
         }
 
+        public void AddEntity(object entity)
+        {
+            _context.Add(entity);
+        }
+
         public bool SaveAll()
         {
             return _context.SaveChanges() > 0;
